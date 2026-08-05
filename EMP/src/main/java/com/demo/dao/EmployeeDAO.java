@@ -1,8 +1,6 @@
 package com.demo.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class EmployeeDAO {
 
             Connection con = DBConnection.getConnection();
 
-            String sql = "INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO employee(emp_id,emp_name,department,designation,salary,email,mobile,address,joining_date) VALUES(?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement ps = con.prepareStatement(sql);
 
@@ -34,6 +32,7 @@ public class EmployeeDAO {
 
             status = ps.executeUpdate() > 0;
 
+            ps.close();
             con.close();
 
         } catch (Exception e) {
@@ -51,9 +50,7 @@ public class EmployeeDAO {
 
             Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT * FROM employee";
-
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM employee");
 
             ResultSet rs = ps.executeQuery();
 
@@ -74,6 +71,8 @@ public class EmployeeDAO {
                 list.add(emp);
             }
 
+            rs.close();
+            ps.close();
             con.close();
 
         } catch (Exception e) {
@@ -83,6 +82,48 @@ public class EmployeeDAO {
         return list;
     }
 
+    public Employee getEmployeeById(int empId) {
+
+        Employee emp = null;
+
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            PreparedStatement ps =
+                    con.prepareStatement("SELECT * FROM employee WHERE emp_id=?");
+
+            ps.setInt(1, empId);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                emp = new Employee();
+
+                emp.setEmpId(rs.getInt("emp_id"));
+                emp.setEmpName(rs.getString("emp_name"));
+                emp.setDepartment(rs.getString("department"));
+                emp.setDesignation(rs.getString("designation"));
+                emp.setSalary(rs.getDouble("salary"));
+                emp.setEmail(rs.getString("email"));
+                emp.setMobile(rs.getString("mobile"));
+                emp.setAddress(rs.getString("address"));
+                emp.setJoiningDate(rs.getString("joining_date"));
+            }
+
+            rs.close();
+            ps.close();
+            con.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return emp;
+    }
+
+
     public boolean deleteEmployee(int empId) {
 
         boolean status = false;
@@ -91,14 +132,14 @@ public class EmployeeDAO {
 
             Connection con = DBConnection.getConnection();
 
-            String sql = "DELETE FROM employee WHERE emp_id=?";
-
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps =
+                    con.prepareStatement("DELETE FROM employee WHERE emp_id=?");
 
             ps.setInt(1, empId);
 
             status = ps.executeUpdate() > 0;
 
+            ps.close();
             con.close();
 
         } catch (Exception e) {
@@ -116,9 +157,8 @@ public class EmployeeDAO {
 
             Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT COUNT(*) FROM employee";
-
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps =
+                    con.prepareStatement("SELECT COUNT(*) FROM employee");
 
             ResultSet rs = ps.executeQuery();
 
@@ -126,6 +166,8 @@ public class EmployeeDAO {
                 count = rs.getInt(1);
             }
 
+            rs.close();
+            ps.close();
             con.close();
 
         } catch (Exception e) {
@@ -143,9 +185,8 @@ public class EmployeeDAO {
 
             Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT MAX(salary) FROM employee";
-
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps =
+                    con.prepareStatement("SELECT MAX(salary) FROM employee");
 
             ResultSet rs = ps.executeQuery();
 
@@ -153,6 +194,8 @@ public class EmployeeDAO {
                 salary = rs.getDouble(1);
             }
 
+            rs.close();
+            ps.close();
             con.close();
 
         } catch (Exception e) {
@@ -170,9 +213,8 @@ public class EmployeeDAO {
 
             Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT MIN(salary) FROM employee";
-
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps =
+                    con.prepareStatement("SELECT MIN(salary) FROM employee");
 
             ResultSet rs = ps.executeQuery();
 
@@ -180,6 +222,8 @@ public class EmployeeDAO {
                 salary = rs.getDouble(1);
             }
 
+            rs.close();
+            ps.close();
             con.close();
 
         } catch (Exception e) {
@@ -197,9 +241,8 @@ public class EmployeeDAO {
 
             Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT AVG(salary) FROM employee";
-
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps =
+                    con.prepareStatement("SELECT AVG(salary) FROM employee");
 
             ResultSet rs = ps.executeQuery();
 
@@ -207,6 +250,8 @@ public class EmployeeDAO {
                 salary = rs.getDouble(1);
             }
 
+            rs.close();
+            ps.close();
             con.close();
 
         } catch (Exception e) {

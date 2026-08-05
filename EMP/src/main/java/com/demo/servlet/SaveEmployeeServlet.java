@@ -1,19 +1,24 @@
-package servlet;
+package com.demo.servlet;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import model.Employee;
-import serialization.EmployeeSerialization;
+import com.demo.model.Employee;
+import com.demo.serialization.EmployeeSerialization;
 
 @WebServlet("/SaveEmployeeServlet")
 public class SaveEmployeeServlet extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
+    @Override
     protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response)
+            HttpServletResponse response)
             throws ServletException, IOException {
 
         Employee emp = new Employee();
@@ -28,10 +33,16 @@ public class SaveEmployeeServlet extends HttpServlet {
         emp.setAddress(request.getParameter("address"));
         emp.setJoiningDate(request.getParameter("joiningDate"));
 
-        if (EmployeeSerialization.saveEmployee(emp)) {
-            response.getWriter().println("Employee object saved successfully.");
+        boolean status = EmployeeSerialization.saveEmployee(emp);
+
+        response.setContentType("text/html");
+
+        if (status) {
+            response.getWriter().println("<h2>Employee saved successfully.</h2>");
+            response.getWriter().println("<a href='serialization.jsp'>Back</a>");
         } else {
-            response.getWriter().println("Failed to save employee object.");
+            response.getWriter().println("<h2>Failed to save employee.</h2>");
+            response.getWriter().println("<a href='serialization.jsp'>Back</a>");
         }
     }
 }

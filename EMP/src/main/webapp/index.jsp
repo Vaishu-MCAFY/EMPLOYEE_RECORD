@@ -21,7 +21,6 @@
         <li><a href="dashboard.jsp">Dashboard</a></li>
         <li><a href="addEmployee.jsp">Add Employee</a></li>
         <li><a href="employeeList.jsp">View Employees</a></li>
-        <li><a href="searchEmployee.jsp">Search Employee</a></li>
     </ul>
 </nav>
 
@@ -35,7 +34,7 @@
         and manage employee records stored in the database.
     </p>
 
-    <a href="dashboard.jsp" class="dashboard-btn">
+    <a href="DashboardServlet" class="dashboard-btn">
         Go to Dashboard
     </a>
 

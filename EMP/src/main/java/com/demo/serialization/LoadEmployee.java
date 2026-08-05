@@ -1,11 +1,11 @@
-package serialization;
+package com.demo.serialization;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
-import model.Employee;
+import com.demo.model.Employee;
 
-public class EmployeeDeserialization {
+public class LoadEmployee {
 
     public static Employee loadEmployee() {
 

@@ -1,0 +1,15 @@
+C:\EMP\EMP\src\main\java\com\demo\dao\DBConnection.java
+C:\EMP\EMP\src\main\java\com\demo\dao\EmployeeDAO.java
+C:\EMP\EMP\src\main\java\com\demo\dao\LoginDAO.java
+C:\EMP\EMP\src\main\java\com\demo\model\Employee.java
+C:\EMP\EMP\src\main\java\com\demo\serialization\EmployeeSerialization.java
+C:\EMP\EMP\src\main\java\com\demo\serialization\LoadEmployee.java
+C:\EMP\EMP\src\main\java\com\demo\serialization\SaveEmployee.java
+C:\EMP\EMP\src\main\java\com\demo\servlet\AddEmployeeServlet.java
+C:\EMP\EMP\src\main\java\com\demo\servlet\DashboardServlet.java
+C:\EMP\EMP\src\main\java\com\demo\servlet\DeleteEmployeeServlet.java
+C:\EMP\EMP\src\main\java\com\demo\servlet\EmployeeListServlet.java
+C:\EMP\EMP\src\main\java\com\demo\servlet\LoadEmployeeServlet.java
+C:\EMP\EMP\src\main\java\com\demo\servlet\LoginServlet.java
+C:\EMP\EMP\src\main\java\com\demo\servlet\LogoutServlet.java
+C:\EMP\EMP\src\main\java\com\demo\servlet\SaveEmployeeServlet.java

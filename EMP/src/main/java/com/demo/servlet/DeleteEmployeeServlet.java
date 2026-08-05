@@ -1,18 +1,25 @@
-package servlet;
+package  com.demo.servlet;
 
-import dao.EmployeeDAO;
+import com.demo.dao.EmployeeDAO;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DeleteEmployeeServlet")
 public class DeleteEmployeeServlet extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
+    public DeleteEmployeeServlet() {
+        super();
+    }
+
+    @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response)
             throws ServletException, IOException {
@@ -23,10 +30,11 @@ public class DeleteEmployeeServlet extends HttpServlet {
 
         boolean status = dao.deleteEmployee(empId);
 
-        if(status) {
+        if (status) {
             response.sendRedirect("EmployeeListServlet");
         } else {
-            response.getWriter().println("Employee could not be deleted.");
+            response.setContentType("text/html");
+            response.getWriter().println("<h3>Employee could not be deleted.</h3>");
         }
     }
 }

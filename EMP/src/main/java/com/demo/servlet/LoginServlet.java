@@ -1,17 +1,24 @@
-package servlet;
+package  com.demo.servlet;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
+    public LoginServlet() {
+        super();
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException {
@@ -19,19 +26,17 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // Simple login (replace with database validation)
-        if(username.equals("admin") && password.equals("admin123")){
+        if ("admin".equals(username) && "admin123".equals(password)) {
 
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
 
-            response.sendRedirect("dashboard.jsp");
-
-        }else{
+           response.sendRedirect("login.jsp");
+        } else {
 
             request.setAttribute("error", "Invalid Username or Password");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-
+            request.getRequestDispatcher("login.jsp")
+                   .forward(request, response);
         }
     }
 }

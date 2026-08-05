@@ -1,22 +1,27 @@
-package servlet;
+package com.demo.servlet;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import model.Employee;
-import serialization.EmployeeDeserialization;
+import com.demo.model.Employee;
+import com.demo.serialization.EmployeeSerialization;
 
 @WebServlet("/LoadEmployeeServlet")
 public class LoadEmployeeServlet extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
+    @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response)
             throws ServletException, IOException {
 
-        Employee emp = EmployeeDeserialization.loadEmployee();
+        Employee emp = EmployeeSerialization.loadEmployee();
 
         request.setAttribute("employee", emp);
 
