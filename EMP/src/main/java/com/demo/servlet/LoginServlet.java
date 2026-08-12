@@ -1,4 +1,4 @@
-package  com.demo.servlet;
+package com.demo.servlet;
 
 import java.io.IOException;
 
@@ -9,16 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.demo.dao.LoginDAO;
+
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    public LoginServlet() {
-        super();
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException {
@@ -26,15 +23,31 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        if ("admin".equals(username) && "admin123".equals(password)) {
+        System.out.println("Username: " + username);
+        System.out.println("Password: " + password);
+
+        LoginDAO dao = new LoginDAO();
+
+        boolean status = dao.validate(username, password);
+
+        if (status) {
+
+            System.out.println("Redirecting to dashboard...");
 
             HttpSession session = request.getSession();
+
             session.setAttribute("username", username);
 
-           response.sendRedirect("login.jsp");
+        response.sendRedirect("DashboardServlet");
         } else {
 
-            request.setAttribute("error", "Invalid Username or Password");
+            System.out.println("Invalid username/password");
+
+            request.setAttribute(
+                "error",
+                "Invalid Username or Password"
+            );
+
             request.getRequestDispatcher("login.jsp")
                    .forward(request, response);
         }

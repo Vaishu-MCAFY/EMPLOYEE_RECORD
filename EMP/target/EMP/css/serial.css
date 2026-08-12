@@ -12,7 +12,6 @@ body{
 }
 
 
-/* Main Heading */
 
 h2{
     text-align:center;
@@ -22,7 +21,6 @@ h2{
 }
 
 
-/* Form Box */
 
 form{
     width:500px;
@@ -37,7 +35,6 @@ form{
 }
 
 
-/* Input Fields */
 
 input[type="number"],
 input[type="text"],
@@ -68,7 +65,6 @@ input:focus{
 }
 
 
-/* Submit Button */
 
 input[type="submit"]{
 
@@ -100,7 +96,6 @@ input[type="submit"]:hover{
 }
 
 
-/* Load Employee Link */
 
 a{
 
@@ -133,9 +128,6 @@ a:hover{
 
 }
 
-
-/* Employee Details */
-
 h3{
 
     width:500px;
@@ -160,9 +152,6 @@ body{
     color:#333;
 
 }
-
-
-/* Loaded Employee Information */
 
 body > br + h3 ~ *{
 

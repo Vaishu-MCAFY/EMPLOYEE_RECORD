@@ -15,14 +15,6 @@
     </div>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="dashboard.jsp">Dashboard</a></li>
-        <li><a href="addEmployee.jsp">Add Employee</a></li>
-        <li><a href="employeeList.jsp">View Employees</a></li>
-    </ul>
-</nav>
 
 <section class="home">
 

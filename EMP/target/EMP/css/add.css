@@ -1,4 +1,3 @@
-/* General Page */
 *{
     margin:0;
     padding:0;
@@ -10,7 +9,6 @@ body{
     background:#f4f6f9;
 }
 
-/* Container */
 .container{
     width:550px;
     margin:40px auto;
@@ -20,14 +18,12 @@ body{
     box-shadow:0 0 15px rgba(0,0,0,0.2);
 }
 
-/* Heading */
 .container h2{
     text-align:center;
     color:#2c3e50;
     margin-bottom:25px;
 }
 
-/* Table */
 table{
     width:100%;
     border-collapse:collapse;
@@ -38,14 +34,12 @@ table td{
     vertical-align:middle;
 }
 
-/* Labels */
 table td:first-child{
     font-weight:bold;
     color:#333;
     width:35%;
 }
 
-/* Input Fields */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -67,12 +61,10 @@ textarea:focus{
     border:1px solid #3498db;
 }
 
-/* Textarea */
 textarea{
     resize:none;
 }
 
-/* Buttons */
 input[type="submit"],
 input[type="reset"]{
 
@@ -84,7 +76,6 @@ input[type="reset"]{
     cursor:pointer;
 }
 
-/* Save Button */
 input[type="submit"]{
     background:#27ae60;
     color:white;
@@ -94,7 +85,6 @@ input[type="submit"]:hover{
     background:#1e8449;
 }
 
-/* Reset Button */
 input[type="reset"]{
     background:#e74c3c;
     color:white;
@@ -104,7 +94,6 @@ input[type="reset"]:hover{
     background:#c0392b;
 }
 
-/* Responsive */
 @media(max-width:600px){
 
 .container{

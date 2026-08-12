@@ -1,6 +1,7 @@
 com\demo\dao\LoginDAO.class
 com\demo\servlet\LoadEmployeeServlet.class
 com\demo\servlet\LoginServlet.class
+com\demo\dao\DashboardDAO.class
 com\demo\serialization\SaveEmployee.class
 com\demo\serialization\EmployeeSerialization.class
 com\demo\dao\DBConnection.class

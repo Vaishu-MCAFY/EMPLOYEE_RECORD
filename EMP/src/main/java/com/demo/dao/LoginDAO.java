@@ -10,11 +10,14 @@ public class LoginDAO {
 
         boolean status = false;
 
+        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+
         try {
 
             Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT * FROM users WHERE username=? AND password=?";
+            System.out.println("Checking username: " + username);
+            System.out.println("Checking password: " + password);
 
             PreparedStatement ps = con.prepareStatement(sql);
 
@@ -24,7 +27,14 @@ public class LoginDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+
+                System.out.println("LOGIN SUCCESS");
                 status = true;
+
+            } else {
+
+                System.out.println("LOGIN FAILED - User not found");
+
             }
 
             rs.close();
@@ -32,7 +42,10 @@ public class LoginDAO {
             con.close();
 
         } catch (Exception e) {
+
+            System.out.println("DATABASE ERROR:");
             e.printStackTrace();
+
         }
 
         return status;

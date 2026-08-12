@@ -31,29 +31,6 @@ header{
     background:#2980b9;
 }
 
-nav{
-    background:#34495e;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-}
-
-nav ul li{
-    padding:15px;
-}
-
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-nav ul li:hover{
-    background:#2c3e50;
-}
-
 .home{
     width:80%;
     margin:50px auto;
