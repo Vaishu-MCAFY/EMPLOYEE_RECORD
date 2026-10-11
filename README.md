@@ -47,6 +47,7 @@ The Employee Record System is a web-based application developed using JSP, Servl
 
 
 ### Project Structure  
+
   EMP/
 ├── src/
 │   └── main/
