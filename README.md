@@ -34,7 +34,7 @@ The Employee Record System is a web-based application developed using JSP, Servl
 - View Employee
 - Update Employee
 - Delete Employee
-- 
+  
 4. Serialization
 - Save Employee Object
 - Load Employee Object
@@ -44,6 +44,7 @@ The Employee Record System is a web-based application developed using JSP, Servl
 - Retrieve Employee Records
 - Update Employee Records
 - Delete Employee Records
+
 
 ### Project Structure  
   EMP/
@@ -123,8 +124,8 @@ The Employee Record System is a web-based application developed using JSP, Servl
    http://localhost:8080/EMP/
    
    Adjust the URL if your deployed application uses a different context path.
-   
 
+   
 ## Java Serialization
 
 Java Serialization converts an object into a byte stream so that it can be saved and loaded later.
