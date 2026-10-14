@@ -1,6 +1,6 @@
 # Employee Record System
 
-The Employee Record System is a web-based application developed using JSP, Servlets, MySQL, and Java Serialization. It helps manage employee information by providing CRUD operations (Create, Read, Update, Delete), search functionality, and object serialization.
+The Employee Record System is developed a simple application with a secure login and a dashboard that automatically tracks staff counts and salary stats. Built features to easily add, view, update, and delete employee profiles while using databases and file serialization to save data securely.
 
 ## Technologies Used
 - Java
@@ -11,7 +11,7 @@ The Employee Record System is a web-based application developed using JSP, Servl
 - CSS3
 - Apache Tomcat
 - Maven
--Visual Studio IDE
+
 
 ## Project Features
 1. Home
